@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tourist Place</title>
+    <style>
+        /* Basic Reset */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* Global Styles */
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            background-color: #f4f4f4;
+            color: #333;
+        }
+
+        nav {
+            background: #333;
+            color: #fff;
+            padding: 10px 0;
+            text-align: center;
+        }
+
+        nav ul {
+            list-style: none;
+        }
+
+        nav ul li {
+            display: inline;
+            margin: 0 15px;
+        }
+
+        nav ul li a {
+            color: #fff;
+            text-decoration: none;
+            font-size: 18px;
+        }
+
+        header {
+            position: relative;
+            width: 100%;
+            height: 400px;
+            overflow: hidden;
+        }
+
+        .slider {
+            position: relative;
+            width: 100%;
+            height: 100%;
+        }
+
+        .slide {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            opacity: 0;
+            transition: opacity 1s ease-in-out;
+        }
+
+        .slide img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        #places {
+            padding: 40px 20px;
+            text-align: center;
+            background-color: #fff;
+        }
+
+        #places h2 {
+            margin-bottom: 30px;
+        }
+
+        .places {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+        }
+
+        .place {
+            width: 30%;
+            text-align: center;
+        }
+
+        .place img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            border-radius: 10px;
+            margin-bottom: 15px;
+        }
+
+        #contact {
+            padding: 40px 20px;
+            background-color: #f1f1f1;
+        }
+
+        #contact h2 {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        #contact form {
+            display: flex;
+            flex-direction: column;
+            max-width: 500px;
+            margin: 0 auto;
+        }
+
+        #contact label {
+            margin-bottom: 5px;
+        }
+
+        #contact input, #contact textarea {
+            padding: 10px;
+            margin-bottom: 15px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        #contact button {
+            padding: 10px 20px;
+            background-color: #333;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        footer {
+            text-align: center;
+            padding: 20px;
+            background-color: #333;
+            color: #fff;
+        }
+
+        footer p {
+            margin: 0;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Navigation Bar -->
+    <nav>
+        <ul>
+            <li><a href="#home">Home</a></li>
+            <li><a href="#places">Tourist Places</a></li>
+            
+        </ul>
+    </nav>
+
+    <!-- Header Section -->
+    <header id="home">
+        <div class="slider">
+            <div class="slide fade">
+                <img src="https://www.wendywutours.co.uk/resource/upload/2255/mysore-palace-imgx2.jpg.webp" alt="Tourist Place 1">
+            </div>
+            <div class="slide fade">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/8/8e/PremMandirSideViewFromCanteen.jpg/800px-PremMandirSideViewFromCanteen.jpg" alt="Tourist Place 2">
+            </div>
+            <div class="slide fade">
+                <img src="https://i.ytimg.com/vi/Pd--H3EOni8/maxresdefault.jpg" alt="Tourist Place 3">
+            </div>
+            <div class="slide fade">
+                <img src="https://c.ndtvimg.com/2024-01/ev1g16t8_ayodhya-ram-mandir-inauguration-news-live_625x300_22_January_24.jpeg?im=FaceCrop,algorithm=dnn,width=545,height=307" alt="Tourist Place 3">
+            </div>
+        </div>
+    </header>
+
+    <!-- Tourist Places Section -->
+    <section id="places">
+        <h2>Popular Tourist Places</h2>
+        <div class="places">
+            <div class="place">
+                <img src="https://www.wendywutours.co.uk/resource/upload/2255/mysore-palace-imgx2.jpg.webp" alt="Place 1">
+                <h3>Beautiful palace</h3>
+                <p>Mysore Palace</p>
+            </div>
+           
+            <div class="place">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/8/8e/PremMandirSideViewFromCanteen.jpg/800px-PremMandirSideViewFromCanteen.jpg" alt="Place 3">
+                <h3>Historic Temple Prem Mandir</h3>
+                <p>A historic temple with rich culture and architecture.</p>
+            </div>
+            <div class="place">
+                <img src="https://i.ytimg.com/vi/Pd--H3EOni8/maxresdefault.jpg" alt="Place 2">
+                <h3>Dhudh Sagar</h3>
+                <p>Explore the breathtaking scenic views.</p>
+            </div>
+            <div class="place">
+                <img src="https://c.ndtvimg.com/2024-01/ev1g16t8_ayodhya-ram-mandir-inauguration-news-live_625x300_22_January_24.jpeg?im=FaceCrop,algorithm=dnn,width=545,height=307" alt="Place 3">
+                <h3>Sacred Temple</h3>
+                <p>Ram Mandir with rich culture and architecture.</p>
+            </div>
+        </div>
+    </section>
+
+    
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2025 Tourist Place | All Rights Reserved</p>
+    </footer>
+
+    <script>
+        // Image Slider Logic
+        let slideIndex = 0;
+
+        function showSlides() {
+            let slides = document.querySelectorAll('.slide');
+            for (let i = 0; i < slides.length; i++) {
+                slides[i].style.opacity = 0;
+            }
+            slideIndex++;
+            if (slideIndex > slides.length) { slideIndex = 1 }
+            slides[slideIndex - 1].style.opacity = 1;
+            setTimeout(showSlides, 3000); // Change slide every 3 seconds
+        }
+
+        showSlides();
+    </script>
+</body>
+</html>
